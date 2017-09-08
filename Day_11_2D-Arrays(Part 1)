@@ -1,0 +1,60 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main(){
+    vector< vector<int> > arr(6,vector<int>(6));
+    for(int arr_i = 0;arr_i < 6;arr_i++){
+       for(int arr_j = 0;arr_j < 6;arr_j++){
+          cin >> arr[arr_i][arr_j];
+       }
+    }
+    int row,col,set=0,sum[16];
+    for(int i=3;i<=6;i++)
+    {
+        row=i;
+        for(int j=3;j<=6;j++)
+        {
+            col=j;
+            {
+                int rst,cst;
+                rst=row-3;cst=col-3;
+                sum[set]=0-(arr[row-2][col-3])-(arr[row-2][col-1]);
+                    for(int arr_i = rst;arr_i < row;arr_i++){
+                    for(int arr_j = cst;arr_j < col;arr_j++){
+                    sum[set]+=arr[arr_i][arr_j];
+                    }
+                    }
+                set++;
+            }
+        }
+    }
+    int maxsum=0;
+    for(int k=0;k<16;k++)
+    {
+        if(maxsum<sum[k])
+            maxsum=sum[k];
+    }
+    cout<<maxsum;
+    return 0;
+}
