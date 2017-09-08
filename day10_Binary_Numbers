@@ -1,0 +1,53 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+
+int main(){
+    int n,temp,count=0,arr[100];
+    cin >> n;
+    while(n>1)
+    {
+        arr[count]=(n%2);
+        n=n/2;
+        count++;
+    }
+    arr[count]=1;
+    int counter=0,maxcount=0;
+    for(int i=0;i<=count;i++)
+    {
+        if(arr[i]==1)
+        {
+            counter++;
+            if(maxcount<counter)
+                maxcount=counter;
+        }
+        else{
+            counter=0;
+        }
+    }
+    cout<<maxcount;
+        
+    return 0;
+}
