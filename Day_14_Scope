@@ -1,0 +1,25 @@
+	// Add your code here
+    Difference(vector<int> val){
+        elements=val;
+    }
+
+void computeDifference() {
+    int diff;
+    for(int i=0;i<elements.size();i++)
+    {
+        for(int j=0;j<elements.size();j++)
+        {
+            if((elements[i]-elements[j])>=0)
+            {
+                if(diff<(elements[i]-elements[j]))
+                diff=(elements[i]-elements[j]);
+            }
+            else
+            {
+                if(diff<(elements[j]-elements[i]))
+                    diff=(elements[j]-elements[i]);
+            }
+        }
+    }
+    maximumDifference=diff;
+  }
